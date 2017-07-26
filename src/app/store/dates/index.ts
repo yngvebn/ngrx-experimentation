@@ -20,6 +20,14 @@ const initialState: State = {
 export function reducer(state: State = initialState, action: dates.Actions): State {
     switch (action.type) {
         case dates.DATES_FETCHED_SUCCESS: {
+            let existingDates = state.dates.map(d => d.date);
+            let newDates = action.payload.myBetsDate
+                                .map(bets => bets.date)
+                                .filter(date => existingDates.indexOf(date) === -1);
+            let oldExistingDates = existingDates
+                                        .filter(d => newDates.indexOf(d) > -1);
+            let allNewDates =  [...newDates, ...oldExistingDates]
+                                    .map()
             console.log(action);
             return state;
         }

@@ -16,5 +16,5 @@ export interface MyBetsDate {
 
 export interface MyBets {
     numberOfPages: number;
-    myBetsDate: MyBetsDate[] | any[];
+    myBetsDate: MyBetsDate[];
 }
